@@ -4,6 +4,7 @@ import java.util.Scanner;
 // 2)supongo que hay que scrapear los resultados de una palabra en especifico en google y despues importar
 //eso con metadatos. enlace interesante-> https://helpcenter.octoparse.es/hc/es/articles/360056976234-Scrapear-datos-de-Google-Search
 // https://metadato.org/
+// https://www.youtube.com/watch?v=brHO0LuRoI4 (video para scrapear los datos de google y devolverlos en archivo csv)
 
 public class main{
     public static void main(String[] args){
