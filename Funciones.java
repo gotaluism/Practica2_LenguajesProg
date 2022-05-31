@@ -1,20 +1,26 @@
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import javax.swing.JOptionPane;
+
 
 class Funciones {
 
   private BufferedReader lector;
 
   public void leerCSV (String archivo){
-  
+
+  try {
     lector = new BufferedReader(new FileReader(archivo));
     lector.lines()
-		  .distinct()
-		  .map(String::toLowerCase)
-		  .forEach(System.out::println);
-
+    .filter(name -> name.startsWith("https://"))
+		.forEach(System.out::println);
+}
+  catch (Exception e) {
+			JOptionPane.showMessageDialog( null, e);
+		}
   }
+ 
 
   public static void primero() {
 		System.out.print("hola");
