@@ -2,53 +2,36 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import javax.swing.JOptionPane;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
+import java.util.ArrayList;
+
 
 
 class Funciones {
 
-  private BufferedReader lector;
+  public static void manipulacionString (String s){
+  int A= s.indexOf("https");
+    String urlF = s.substring(A, s.length());
+    System.out.println(urlF+"\n");
+  }
 
-  public void leerCSV (String archivo){
-
+  public ArrayList<String> funcionPrincipal (String archivo){
+    ArrayList<String> list_lineas = new ArrayList<>();
   try {
-    lector = new BufferedReader(new FileReader(archivo));
-    lector.lines()
-    .filter(name -> name.startsWith("https://"))
-		.forEach(System.out::println);
+    BufferedReader lector = Files.newBufferedReader(Paths.get(archivo));
+    Stream<String> lineas = lector.lines();
+		lineas.flatMap(line -> Stream.of(line.split(",,")))
+          //.filter(l -> l.endsWith("pdf"))
+          .filter(l->l.contains("pdf"))
+          .forEach(list_lineas::add);
+
+    
 }
   catch (Exception e) {
 			JOptionPane.showMessageDialog( null, e);
 		}
-  }
- 
 
-  public static void primero() {
-		System.out.print("hola");
-}
-	
-  public static void segundo() {
-		System.out.print("hola2");
-}
-	
-  public static void tercero() {
-		System.out.print("hola3");
-}
-  
-  
-  public void menu(int n){
-    Scanner Scan = new Scanner(System.in);
-     n = Scan.nextInt();
-    if( n == 1) {
-    	   primero();  
-       }
-    else if(n == 2) {
-    	   segundo();
-       }
-    else if(n == 3){
-    	   tercero();
-       }        
-		Scan.close();
-    
+    return list_lineas;
   }
-
-}
