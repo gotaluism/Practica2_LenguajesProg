@@ -12,7 +12,7 @@ import java.util.ArrayList;
 class Funciones {
 
   public static void manipulacionString (String s){
-  int A= s.indexOf("https");
+  int A= s.indexOf("htt");
     String urlF = s.substring(A, s.length());
     System.out.println(urlF+"\n");
   }
@@ -23,7 +23,6 @@ class Funciones {
     BufferedReader lector = Files.newBufferedReader(Paths.get(archivo));
     Stream<String> lineas = lector.lines();
 		lineas.flatMap(line -> Stream.of(line.split(",,")))
-          //.filter(l -> l.endsWith("pdf"))
           .filter(l->l.contains("pdf"))
           .forEach(list_lineas::add);
 
