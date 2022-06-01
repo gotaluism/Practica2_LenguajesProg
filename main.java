@@ -17,7 +17,7 @@ public class Main{
 		        
       System.out.println("3|Tomar el resultado de los 5 hechos más relevantes de la frase - analisís de pobreza en colombia-");
 
-      int n = Scan.nextInt();
+      var n = Scan.nextInt();
     
       Funciones funcion = new Funciones();
 
