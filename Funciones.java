@@ -30,7 +30,47 @@ class Funciones {
 }
   catch (Exception e) {
 			JOptionPane.showMessageDialog( null, e);
-		}
+		} //atrapa el error cuando el metadato es nulo
 
     return list_lineas;
   }
+
+
+  public void impresionURL(ArrayList<String> list_lineas){
+
+    
+    String url1= list_lineas.get(0);
+    String url2= list_lineas.get(1);
+    String url3= list_lineas.get(2);
+    String url4= list_lineas.get(3);
+    String url5= list_lineas.get(4);
+    
+
+    manipulacionString(url1);
+    manipulacionString(url2);
+    manipulacionString(url3);
+    manipulacionString(url4);
+    manipulacionString(url5);
+
+ 
+    
+  }
+ 
+
+  public void menu(int n){
+    Funciones funcion = new Funciones();
+    if( n == 1) {
+         funcion.impresionURL(funcionPrincipal("Metadatos1.csv"));
+       }
+    else if(n == 2) {
+         funcion.impresionURL(funcionPrincipal("Metadatos2.csv"));
+       }
+    else if(n == 3){
+    	   funcion.impresionURL(funcionPrincipal("Metadatos3.csv"));
+       }        
+	
+    
+  }
+
+
+}
